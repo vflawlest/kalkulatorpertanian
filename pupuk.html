@@ -1,0 +1,179 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Mengatur gaya untuk seluruh halaman */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Mengatur gaya untuk judul */
+p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Mengatur gaya untuk tabel */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Mengatur gaya untuk header tabel */
+th {
+  text-align: left;
+  padding: 5px;
+  background-color: #ddd;
+}
+
+/* Mengatur gaya untuk isi tabel */
+td {
+  padding: 5px;
+}
+
+/* Mengatur gaya untuk input */
+input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Mengatur gaya untuk tombol */
+button {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #ddd;
+}
+.judul {
+    text-align: center;
+}
+/* Mengatur gaya untuk button kembali */
+.button-kembali {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #ddd;
+  cursor: pointer;
+  text-decoration: none;
+  
+}
+
+/* Mengatur gaya untuk button kembali ketika mouse hover */
+.button-kembali:hover {
+  background-color: #ccc;
+}
+
+/* Mengatur gaya untuk button kembali ketika ditekan */
+.button-kembali:active {
+  background-color: #bbb;
+}
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body {
+  background-color: #a6eb91;
+}
+
+    </style>
+</head>
+<body>
+    <div id="container">
+<p><font face='Times New Roman' size='14' color='blue'>Kebutuhan pupuk tanaman cabai</font></p>
+<form name='hitungls3' method='post'>
+	<h3>Kebutuhan pupuk kandang</h3>
+	<table>
+		<tr>
+			<td>Jumlah tanaman</td>
+			<td>:</td>
+			<td><input type='number' name='alass3' value='0' onchange='hitungluas();'></td>
+		</tr>
+		<tr>
+			<td>Pupuk kandang yang dibutuhkan (Kg)</td>
+			<td>:</td>
+			<td> <input type='text' name='luass3' onchange='hitungluas();' disabled="true"></td>
+		</tr>
+		</table>
+</form>
+
+<!-- Pupuk NPK -->
+<form method="post" name="npksystem">
+	
+	<h3>Kebutuhan pupuk NPK</h3>
+	<table>
+	<tr>
+		<td>Jumlah tanaman</td>
+		<td>:</td>
+		<td><input type='number' name='npkin' value='0' onchange='hitungnpk();'></td>
+	</tr>
+	<tr>
+		<td>Pupuk NPK yang dibutuhkan (Kg)</td>
+		<td>:</td>
+		<td> <input type='text' name='npkout' onchange='hitungnpk();' disabled="true"></td>
+	</tr>
+	</table>
+</form>
+
+<!-- Pupuk SP36 -->
+<form method="post" name="sp36system">
+	
+	<h3>Kebutuhan pupuk SP36</h3>
+	<table>
+	<tr>
+		<td>Jumlah tanaman</td>
+		<td>:</td>
+		<td><input type='number' name='spin' value='0' onchange='hitungsp();'></td>
+	</tr>
+	<tr>
+		<td>Pupuk SP36 yang dibutuhkan (Kg)</td>
+		<td>:</td>
+		<td> <input type='text' name='spout' onchange='hitungsp();' disabled="true"></td>
+	</tr>
+	</table>
+</form>
+
+<!-- Keterangan -->
+<h5>Keterangan :</h5>
+<p>Kebutuhan pupuk kandang sapi = 1kg/tanaman</p>
+<p>Jika pupuk kandang ayam = 0,5kg/tanaman</p>
+<p>Kebutuhan NPK = 20gr/tanaman</p>
+<p>Kebutuhan SP36 = 5gr/tanaman</p>
+<ul>
+</ul>
+
+<a href="index.html" class="button-kembali">Kembali</a>
+</div>
+</body>
+
+<!-- script -->
+<script type='text/javascript'>
+
+// Logika kebutuhan pupuk kandang
+	function hitungluas(){
+	var alas = document.forms['hitungls3']['alass3'].value;
+	var luas = alas*1;
+	document.forms['hitungls3']['luass3'].value = luas;
+	};
+
+// logika kebutuhan NPK
+	function hitungnpk(){
+	var npkin = document.forms['npksystem']['npkin'].value;
+	var npkout = npkin*0.02;
+	document.forms['npksystem']['npkout'].value = npkout;
+	};
+
+// Logika kebutuhan SP36
+	function hitungsp(){
+	var spin = document.forms['sp36system']['spin'].value;
+	var spout = spin*0.005;
+	document.forms['sp36system']['spout'].value = spout;
+	}
+</script>
+</html>

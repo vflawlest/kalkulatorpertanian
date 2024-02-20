@@ -1,0 +1,188 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Mengatur gaya untuk seluruh halaman */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Mengatur gaya untuk judul */
+p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Mengatur gaya untuk tabel */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Mengatur gaya untuk header tabel */
+th {
+  text-align: left;
+  padding: 5px;
+  background-color: #ddd;
+}
+
+/* Mengatur gaya untuk isi tabel */
+td {
+  padding: 5px;
+}
+
+/* Mengatur gaya untuk input */
+input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Mengatur gaya untuk tombol */
+button {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #ddd;
+}
+.judul {
+    text-align: center;
+}
+/* Mengatur gaya untuk button kembali */
+.button-kembali {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #ddd;
+  cursor: pointer;
+  text-decoration: none;
+  
+}
+
+/* Mengatur gaya untuk button kembali ketika mouse hover */
+.button-kembali:hover {
+  background-color: #ccc;
+}
+
+/* Mengatur gaya untuk button kembali ketika ditekan */
+.button-kembali:active {
+  background-color: #bbb;
+}
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body {
+  background-color: #a6eb91;
+}
+
+    </style>
+</head>
+<body>
+    <div id="container">
+<p><font face='Times New Roman' size='14' color='blue'>Kalkulator Efisiensi Kerja Traktor</font></p>
+<form name='hitungls3' method='post'>
+	<h3>Kapasitas Lapang Efektif</h3>
+	<table>
+		<tr>
+			<td>Luas Lahan (ha)</td>
+			<td>:</td>
+			<td><input type='number' name='alass3' value='0' onchange='hitungluas();'></td>
+		</tr>
+		<tr>
+			<td>Waktu total (jam)</td>
+			<td>:</td>
+			<td><input type='number' name='wtotal' value='0' onchange='hitungluas();'></td>
+		</tr>
+		<tr>
+			<td>Kapasitas Lapang Efektif</td>
+			<td>:</td>
+			<td> <input type='text' name='luass3' onchange='hitungluas();' disabled="true"></td>
+		</tr>
+		</table>
+</form>
+
+<!-- Pupuk NPK -->
+<form method="post" name="npksystem">
+	
+	<h3>Kapasitas Lapang Teoretis</h3>
+	<table>
+	<tr>
+		<td>Lebar Kerja (meter)</td>
+		<td>:</td>
+		<td><input type='number' name='npkin' value='0' onchange='hitungnpk();'></td>
+	</tr>
+	<tr>
+		<td>Kecepatan Teoretis (Km/jam) </td>
+		<td>:</td>
+		<td><input type='number' name='kecteoretis' value='0' onchange='hitungnpk();'></td>
+	</tr>
+	<tr>
+		<td>Pupuk NPK yang dibutuhkan (Kg)</td>
+		<td>:</td>
+		<td> <input type='text' name='npkout' onchange='hitungnpk();' disabled="true"></td>
+	</tr>
+	</table>
+</form>
+
+<!-- Pupuk SP36 -->
+<form method="post" name="sp36system">
+	
+	<h3>Efisiensi (%)</h3>
+	<table>
+	<tr>
+		<td>Kapasitas Lapang Efektif (ha/jam)</td>
+		<td>:</td>
+		<td><input type='number' name='spin' value='0' onchange='hitungsp();'></td>
+	</tr>
+	<tr>
+		<td>Kapasitas Lapang Teoretis (ha/jam)</td>
+		<td>:</td>
+		<td><input type='number' name='nilaiklt' value='0' onchange='hitungsp();'></td>
+	</tr>
+	<tr>
+		<td>Efektifitas kerja Lapang (%)</td>
+		<td>:</td>
+		<td> <input type='text' name='spout' onchange='hitungsp();' disabled="true"></td>
+	</tr>
+	</table>
+</form>
+
+<a href="index.html" class="button-kembali">Kembali</a>
+</div>
+</body>
+
+<!-- script -->
+<script type='text/javascript'>
+
+// Logika kebutuhan pupuk kandang
+	function hitungluas(){
+	var alas = document.forms['hitungls3']['alass3'].value;
+	var wtotal = document.forms['hitungls3']['wtotal'].value;
+	var luas = alas/wtotal;
+	document.forms['hitungls3']['luass3'].value = luas;
+	};
+
+// logika kebutuhan NPK
+	function hitungnpk(){
+	var npkin = document.forms['npksystem']['npkin'].value;
+	var kecteoretis = document.forms['npksystem']['kecteoretis'].value;
+	var npkout = (npkin*kecteoretis)/10;
+	document.forms['npksystem']['npkout'].value = npkout;
+	};
+
+// Logika kebutuhan SP36
+	function hitungsp(){
+	var spin = document.forms['sp36system']['spin'].value;
+	var nilaiklt = document.forms['sp36system']['nilaiklt'].value;
+	var spout = (spin/nilaiklt)*100;
+	document.forms['sp36system']['spout'].value = spout;
+	}
+</script>
+</html>

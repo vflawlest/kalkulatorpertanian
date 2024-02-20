@@ -1,0 +1,129 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Mengatur gaya untuk seluruh halaman */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Mengatur gaya untuk judul */
+p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Mengatur gaya untuk tabel */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Mengatur gaya untuk header tabel */
+th {
+  text-align: left;
+  padding: 5px;
+  background-color: #ddd;
+}
+
+/* Mengatur gaya untuk isi tabel */
+td {
+  padding: 5px;
+}
+
+/* Mengatur gaya untuk input */
+input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Mengatur gaya untuk tombol */
+button {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #ddd;
+}
+.judul {
+    text-align: center;
+}
+/* Mengatur gaya untuk button kembali */
+.button-kembali {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #ddd;
+  cursor: pointer;
+  text-decoration: none;
+  
+}
+
+/* Mengatur gaya untuk button kembali ketika mouse hover */
+.button-kembali:hover {
+  background-color: #ccc;
+}
+
+/* Mengatur gaya untuk button kembali ketika ditekan */
+.button-kembali:active {
+  background-color: #bbb;
+}
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body {
+  background-color: #a6eb91;
+}
+
+    </style>
+</head>
+<body>
+<div id="container">
+<h1 class="judul">MENGHITUNG JUMLAH POPULASI</h1>
+<form name='jumlahPopulasi' method='post'>
+<table>
+<tr>
+<td>Luas Lahan (meter)</td>
+<td>:</td>
+<td><input type='number' name='luasLahan' value='0' onchange='hitungLuas();'></td>
+</tr>
+<tr>
+<td>Panjang jarak tanam (meter)</td>
+<td>:</td>
+<td><input type='number' name='ppanjang' value='0' onchange='hitungLuas();'></td>
+</tr>
+<tr>
+<td>Lebar Jarak Tanam (meter)</td>
+<td>:</td>
+<td><input type='number' name='plebar' value='0' onchange='hitungLuas();'></td>
+</tr>
+<tr>
+<td>populasi</td>
+<td>:</td>
+<td> <input type='text' name='luas' onchange='hitungLuas();' disabled></td>
+</tr>
+</table>
+</form>
+<a href="index.html" class="button-kembali">Kembali</a>
+</div>
+</body>
+<script type='text/javascript'>
+function hitungLuas(){
+var luasLahan = document.forms['jumlahPopulasi']['luasLahan'].value;
+luasLahan = parseFloat(luasLahan);
+var ppanjang = document.forms['jumlahPopulasi']['ppanjang'].value;
+ppanjang = parseFloat(ppanjang);
+var plebar = document.forms['jumlahPopulasi']['plebar'].value;
+plebar = parseFloat(plebar);
+var luas = luasLahan/(ppanjang*plebar);
+document.forms['jumlahPopulasi']['luas'].value = luas;
+}
+</script>
+</html>
